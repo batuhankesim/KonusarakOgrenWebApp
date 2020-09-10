@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using KonusarakOgrenWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Net;
+using System.Xml.Linq;
 
 namespace KonusarakOgrenWebApp.Controllers
 {
@@ -22,9 +24,23 @@ namespace KonusarakOgrenWebApp.Controllers
 
         public IActionResult Index()
         {
+            string RSSURL = "https://www.wired.com/feed/rss";
+            WebClient wclient = new WebClient();
+            string RSSData = wclient.DownloadString(RSSURL);
+
+            XDocument xml = XDocument.Parse(RSSData);
+            var RSSFeedData = (from x in xml.Descendants("item")
+                               select new RssModel
+                               {                                
+                                   Title = ((string)x.Element("title")),
+                                   Link = ((string)x.Element("link")),
+                                   Description = ((string)x.Element("description")),
+                                   PubDate = ((DateTime)x.Element("pubDate")).ToString("dd/MM/yyyy")
+                               }).Take(5);
+            ViewBag.RSSFeed = RSSFeedData;
+            ViewBag.URL = RSSURL;
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
