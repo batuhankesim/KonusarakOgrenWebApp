@@ -15,14 +15,12 @@ namespace KonusarakOgrenWebApp.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
+        {
+            
+            return View();
+        }
+        public IActionResult CreateExam()
         {
             string RSSURL = "https://www.wired.com/feed/rss";
             WebClient wclient = new WebClient();
@@ -31,7 +29,7 @@ namespace KonusarakOgrenWebApp.Controllers
             XDocument xml = XDocument.Parse(RSSData);
             var RSSFeedData = (from x in xml.Descendants("item")
                                select new RssModel
-                               {                                
+                               {
                                    Title = ((string)x.Element("title")),
                                    Link = ((string)x.Element("link")),
                                    Description = ((string)x.Element("description")),
@@ -41,7 +39,7 @@ namespace KonusarakOgrenWebApp.Controllers
             ViewBag.URL = RSSURL;
             return View();
         }
-        public IActionResult Privacy()
+        public IActionResult Exam()
         {
             return View();
         }
