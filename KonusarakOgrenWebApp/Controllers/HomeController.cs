@@ -39,7 +39,7 @@ namespace KonusarakOgrenWebApp.Controllers
             ViewBag.URL = RSSURL;
             return View();
         }
-        public IActionResult Exam()
+        public IActionResult Exam(string link)
         {
             return View();
         }

@@ -10,6 +10,6 @@ namespace KonusarakOgrenWebApp.Models
     {
         public DbSet<ExamModel> ExamModels { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=Batu.db");
+            => options.UseSqlite("Data Source=Exam.db");
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace KonusarakOgrenWebApp.Models
 {
     public class ExamModel
     {
+        [Key]
         public int SınavId { get; set; }
         public string SoruBaslik { get; set; }
         public string SoruAciklama { get; set; }
