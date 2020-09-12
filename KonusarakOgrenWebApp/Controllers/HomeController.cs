@@ -9,6 +9,7 @@ using KonusarakOgrenWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Net;
 using System.Xml.Linq;
+using HtmlAgilityPack;
 
 namespace KonusarakOgrenWebApp.Controllers
 {
@@ -41,7 +42,21 @@ namespace KonusarakOgrenWebApp.Controllers
         }
         public IActionResult Exam(string link)
         {
+            var web = new HtmlWeb();
+            var linkData = web.Load(link);
+
+            var h1 = linkData.DocumentNode.SelectSingleNode("//h1");
+            var p = linkData.DocumentNode.SelectSingleNode("//div[contains(@class, 'article__body')]");
+            ViewBag.h1 = h1.InnerText;
+            ViewBag.p = p.InnerText;
+
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult SinavEkle(ExamModel exam)
+        {
+            return Json(exam);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

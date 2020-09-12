@@ -4,135 +4,135 @@
 }
 
 <div class="row mt-4">
-    <input type="text" class="form-control form-control-lg" placeholder="Metin başlığını buraya yazın" />
+    <input id="txtHeader" type="text" class="form-control form-control-lg" placeholder="Metin başlığını buraya yazın" value="@ViewBag.h1" />
 </div>
 <div class="row mt-4">
-    <textarea class="form-control form-control" placeholder="Metin içeriğini buraya yazın" style="height:100px"></textarea>
+    <textarea id="txtDescription" class="form-control form-control" placeholder="Metin içeriğini buraya yazın" style="height:100px">@ViewBag.p</textarea>
 </div>
 <div id="soruForm">
     <div class="row mt-2">
-        <textarea class="form-control form-control" placeholder="SORU 1"></textarea>
+        <textarea id="txtSoruBir" class="form-control form-control" placeholder="SORU 1"></textarea>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="A)" />
+            <input id="txtFqA" type="text" class="form-control form-control" placeholder="A)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="B)" />
+            <input id="txtFqB" type="text" class="form-control form-control" placeholder="B)" />
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="C)" />
+            <input id="txtFqC" type="text" class="form-control form-control" placeholder="C)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="D)" />
+            <input id="txtFqD" type="text" class="form-control form-control" placeholder="D)" />
         </div>
     </div>
     <div class="row mt-2 d-flex justify-content-center">
         <div class="col-6 d-flex justify-content-center">
-            <select class="form-control form-control">
+            <select id="drpBir" class="form-control form-control">
                 <option selected="selected">Doğru Cevabı Seçin</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
             </select>
         </div>
     </div>
 </div>
 <div id="soruForm">
     <div class="row mt-2">
-        <textarea class="form-control form-control" placeholder="SORU 2"></textarea>
+        <textarea id="txtSoruIki" class="form-control form-control" placeholder="SORU 2"></textarea>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="A)" />
+            <input id="txtSqA" type="text" class="form-control form-control" placeholder="A)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="B)" />
+            <input id="txtSqB" type="text" class="form-control form-control" placeholder="B)" />
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="C)" />
+            <input id="txtSqC" type="text" class="form-control form-control" placeholder="C)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="D)" />
+            <input id="txtSqD" type="text" class="form-control form-control" placeholder="D)" />
         </div>
     </div>
     <div class="row mt-2 d-flex justify-content-center">
         <div class="col-6 d-flex justify-content-center">
-            <select class="form-control form-control">
+            <select id="drpIki" class="form-control form-control">
                 <option selected="selected">Doğru Cevabı Seçin</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
             </select>
         </div>
     </div>
 </div>
 <div id="soruForm">
     <div class="row mt-2">
-        <textarea class="form-control form-control" placeholder="SORU 3"></textarea>
+        <textarea id="txtSoruUc" class="form-control form-control" placeholder="SORU 3"></textarea>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="A)" />
+            <input id="txtTqA" type="text" class="form-control form-control" placeholder="A)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="B)" />
+            <input id="txtTqB" type="text" class="form-control form-control" placeholder="B)" />
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="C)" />
+            <input id="txtTqC" type="text" class="form-control form-control" placeholder="C)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="D)" />
+            <input id="txtTqD" type="text" class="form-control form-control" placeholder="D)" />
         </div>
     </div>
     <div class="row mt-2 d-flex justify-content-center">
         <div class="col-6 d-flex justify-content-center">
-            <select class="form-control form-control">
+            <select id="drpUc" class="form-control form-control">
                 <option selected="selected">Doğru Cevabı Seçin</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
             </select>
         </div>
     </div>
 </div>
 <div id="soruForm">
     <div class="row mt-2">
-        <textarea class="form-control form-control" placeholder="SORU 4"></textarea>
+        <textarea id="txtSoruDort" class="form-control form-control" placeholder="SORU 4"></textarea>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="A)" />
+            <input id="txtDqA" type="text" class="form-control form-control" placeholder="A)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="B)" />
+            <input id="txtDqB" type="text" class="form-control form-control" placeholder="B)" />
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="C)" />
+            <input id="txtDqC" type="text" class="form-control form-control" placeholder="C)" />
         </div>
         <div class="col-6">
-            <input type="text" class="form-control form-control" placeholder="D)" />
+            <input id="txtDqD" type="text" class="form-control form-control" placeholder="D)" />
         </div>
     </div>
     <div class="row mt-2 d-flex justify-content-center">
         <div class="col-6 d-flex justify-content-center">
-            <select class="form-control form-control">
+            <select id="drpDort" class="form-control form-control">
                 <option selected="selected">Doğru Cevabı Seçin</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+                <option value="d">D</option>
             </select>
         </div>
     </div>

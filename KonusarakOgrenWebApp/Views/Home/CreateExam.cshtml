@@ -20,7 +20,7 @@
         @foreach (var item in ViewBag.RSSFeed)
         {
             <tr>
-                <td> <button type="button" class="btn btn-sm btn-primary btnExam" link="@item.Link">Sınav Oluştur</button> </td>
+                <td> <a asp-action="Exam" asp-controller="Home" asp-route-link="@item.Link" class="btn btn-sm btn-primary btnExam" link="@item.Link">Sınav Oluştur</a> </td>
                 <td>@item.Title</td>
                 <td><a href="@item.Link">@item.Link</a></td>
                 <td>@item.Description</td>
@@ -32,9 +32,4 @@
     </tbody>
 </table>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script>
-    $(".btnExam").click(function () {
-        var link = $(this).attr("link")
-        alert(link);
-    })
-</script>
+
