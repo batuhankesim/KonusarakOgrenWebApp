@@ -2,3 +2,48 @@
     ViewData["Title"] = "Home Page";
 }
 
+<table id="grd"
+       data-locale="tr-TR"
+       class="table table-sm table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Başlık</th>
+            <th>Sınava Git</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.Exams)
+        {
+            <tr id="@item.SınavId">
+                <td>@item.SınavId </td>
+                <td>@item.SoruBaslik</td>
+                <td><a asp-action="BeginExam" asp-controller="Home" asp-route-id="@item.SınavId" class="btn btn-sm btn-primary sinavaGit">Sınava Git</a></td>
+                <td><button type="button" sinavId="@item.SınavId" class="btn btn-sm btn-danger btnSil">Sil</button></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(".btnSil").click(function () {
+        var sinavId = $(this).attr("sinavId");
+        console.log(sinavId);
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SinavSil","Home")?sinavId=" + sinavId,
+            data: sinavId,
+            dataType: "text",
+            success: function (data) {
+                alert("başarılı");
+                $("#" + sinavId).remove();
+            },
+            error: function (req, status, error) {
+                alert("başarısız");
+            }
+        });
+    });
+</script>

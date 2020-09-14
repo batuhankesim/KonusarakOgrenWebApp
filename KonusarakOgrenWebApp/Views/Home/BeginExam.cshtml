@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewData["Title"] = "BeginExam";
+}
+@foreach (var item in ViewBag.ExamData)
+{
+    <div class="row d-flex justify-content-center">
+        <h3>@item.SoruBaslik</h3>
+    </div>
+    <div class="row d-flex justify-content-center mt-2">
+        <p>@item.SoruAciklama</p>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group row">
+                <p> <b> 1 - @item.SoruBir </b></p>
+                <label id="lblBirCevap" style="visibility:hidden">@item.DogruCevapBir</label>
+            </div>
+            <form>
+                <div class="radio">
+                    A) <label style="cursor:pointer;"> <input class="radioBir" type="radio" name="optradio" /> @item.SecenekBirA </label>
+                </div>
+
+                <div class="radio">
+                    B) <label style="cursor:pointer;"> <input class="radioBir" type="radio" name="optradio" />  @item.SecenekBirB </label>
+                </div>
+
+
+                <div class="radio">
+                    C) <label style="cursor:pointer;"> <input class="radioBir" type="radio" name="optradio" />  @item.SecenekBirC </label>
+                </div>
+
+
+                <div class="radio">
+                    D) <label style="cursor:pointer;"> <input class="radioBir" type="radio" name="optradio" />  @item.SecenekBirD </label>
+                </div>
+            </form>
+            <div class="form-group row">
+                <p> <b> 2 - @item.SoruIki </b></p>
+                <label id="lblİkiCevap" style="visibility:hidden">@item.DogruCevapIki</label>
+            </div>
+            <form>
+                <div class="radio">
+                    A) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekIkiA </label>
+                </div>
+
+                <div class="radio">
+                    B) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekIkiB </label>
+                </div>
+
+
+                <div class="radio">
+                    C) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekIkiC </label>
+                </div>
+
+
+                <div class="radio">
+                    D)  <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekIkiD </label>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <div class="form-group row">
+                <p> <b>3 - @item.SoruUc </b></p>
+                <label id="lblUcCevap" style="visibility:hidden">@item.DogruCevapUc</label>
+            </div>
+            <form>
+                <div class="radio">
+                    A) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekUcA </label>
+                </div>
+
+                <div class="radio">
+                    B) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekUcB </label>
+                </div>
+
+
+                <div class="radio">
+                    C) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekUcC </label>
+                </div>
+
+
+                <div class="radio">
+                    D) <label style="cursor:pointer;"> <input type="radio" name="optradio" /> @item.SecenekUcD </label>
+                </div>
+            </form>
+            <div class="form-group row">
+                <p> <b> 2 - @item.SoruDort </b></p>
+                <label id="lblDortCevap" style="visibility:hidden">@item.DogruCevapDort</label>
+            </div>
+            <form>
+                <div class="radio">
+                    A) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekDortA </label>
+                </div>
+
+                <div class="radio">
+                    B) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekDortB </label>
+                </div>
+
+
+                <div class="radio">
+                    C) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekDortC </label>
+                </div>
+
+
+                <div class="radio">
+                    D) <label style="cursor:pointer;"> <input type="radio" name="optradio" />  @item.SecenekDortD </label>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="row d-flex justify-content-right mt-4">
+        <button id="btnCheck" type="button" class="btn btn-primary">Sınavı Bitir</button> 
+    </div>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    
+</script>
+

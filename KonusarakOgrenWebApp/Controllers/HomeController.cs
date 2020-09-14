@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Net;
 using System.Xml.Linq;
 using HtmlAgilityPack;
+using System.Text.Json;
 
 namespace KonusarakOgrenWebApp.Controllers
 {
@@ -18,6 +19,18 @@ namespace KonusarakOgrenWebApp.Controllers
     {
         public IActionResult Index()
         {
+            try
+            {
+                using (var context = new ExamDbContext())
+                {
+                   ViewBag.Exams = context.ExamModels.ToList();
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex;
+            }
             
             return View();
         }
@@ -47,17 +60,64 @@ namespace KonusarakOgrenWebApp.Controllers
 
             var h1 = linkData.DocumentNode.SelectSingleNode("//h1");
             var p = linkData.DocumentNode.SelectSingleNode("//div[contains(@class, 'article__body')]");
-            ViewBag.h1 = h1.InnerText;
-            ViewBag.p = p.InnerText;
-
+            ViewBag.h1 = h1.InnerText.Replace("&#x27;d","'");           
+            ViewBag.p = p.InnerText.Replace("&#x27;", "'");
+            
+            
             return View();
+        }
+
+        public IActionResult BeginExam(int id)
+        {
+            using (var context = new ExamDbContext())
+            {
+               ViewBag.ExamData = context.ExamModels.ToList().Where(sinavId => sinavId.SınavId == id);
+                context.SaveChanges();
+            }
+                return View();
         }
 
         [HttpPost]
         public JsonResult SinavEkle(ExamModel exam)
         {
-            return Json(exam);
+            string message;
+            try
+            {
+                using (var context = new ExamDbContext())
+                {
+                    context.ExamModels.Add(exam);
+                    context.SaveChanges();
+                    message = "başarılı";
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.ToString();
+            }
+            
+            return Json(message);
         }
+
+        public JsonResult SinavSil(int sinavId)
+        {
+            string message;
+            try
+            {
+                using (var contex = new ExamDbContext())
+                {
+                    var exam = contex.ExamModels.Find(sinavId);
+                    contex.ExamModels.Remove(exam);
+                    contex.SaveChanges();
+                    message = "silindi";
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.ToString();
+            }
+            return Json(message);
+        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

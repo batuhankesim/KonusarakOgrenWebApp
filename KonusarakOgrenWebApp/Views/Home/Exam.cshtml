@@ -136,5 +136,52 @@
             </select>
         </div>
     </div>
+    <div class="row d-flex justify-content-center mt-4">
+        <button id="btnCreateExam" type="button" class="btn btn-lg btn-primary">Sınav Olurştur</button>
+    </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#btnCreateExam").click(function () {
+        var formData = {          
+                SoruBaslik: $("#txtHeader").val(),
+                SoruAciklama: $("#txtDescription").val(),
+                SoruBir: $("#txtSoruBir").val(),
+                SecenekBirA: $("#txtFqA").val(),
+                SecenekBirB: $("#txtFqB").val(),
+                SecenekBirC: $("#txtFqC").val(),
+                SecenekBirD: $("#txtFqD").val(),
+                SoruIki: $("#txtSoruIki").val(),
+                SecenekIkiA: $("#txtSqA").val(),
+                SecenekIkiB: $("#txtSqB").val(),
+                SecenekIkiC: $("#txtSqC").val(),
+                SecenekIkiD: $("#txtSqD").val(),
+                SoruUc: $("#txtSoruUc").val(),
+                SecenekUcA: $("#txtTqA").val(),
+                SecenekUcB: $("#txtTqB").val(),
+                SecenekUcC: $("#txtTqC").val(),
+                SecenekUcD: $("#txtTqD").val(),
+                SoruDort: $("#txtSoruDort").val(),
+                SecenekDortA: $("#txtDqA").val(),
+                SecenekDortB: $("#txtDqB").val(),
+                SecenekDortC: $("#txtDqC").val(),
+                SecenekDortD: $("#txtDqD").val(),
+                DogruCevapBir: $("#drpBir").val(),
+                DogruCevapIki: $("#drpIki").val(),
+                DogruCevapUc: $("#drpUc").val(),
+                DogruCevapDort: $("#drpDort").val(),           
+        }
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("SinavEkle","Home")",
+            data: formData,
+            dataType: "json",
+            success: function (data) {
+                alert("Sınav Oluşturuldu");
+            },
+            error: function (req, status, error) {
+                alert("başarısız");
+            }
+        });
+    });
+</script>
